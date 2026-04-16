@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="GameZone - Tu catálogo digital de juegos. Explora, compara y comparte tus experiencias de juego con nuestra comunidad de gamers." />
+    <title>GameZone</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+  </head>
+  <body>
+      <div id="root"></div>
+
+      <script type="text/babel">
+          function LandingPage() {
+              const juegos = [
+                  { id: 1, nombre: "The Legend of Zelda", genero: "Aventura", precio: "$60", lang: "en", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEad_9fuh7-T6s6DJjYucsTMB7BScpWiMUcQ&s" },
+                  { id: 2, nombre: "Call of Duty", genero: "Shooter", precio: "$70", lang: "en", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiA10s5ZeROVLff1jiYPCfDioYgMiLGcsQAw&s" },
+                  { id: 3, nombre: "FIFA 24", genero: "Deportes", precio: "$50", lang: "es", img: "https://eci.contebio.com/material/comp/566932/1694507375_EA-Sports-FC-24%20-01.jpg" }
+              ];
+
+              return (
+                  <div className="font-sans bg-gray-50 min-h-screen">
+                    {/* Encabezado */}
+                    <header className="bg-black text-white p-6 shadow-xl sticky top-0 z-50">
+                        <div className="container mx-auto flex justify-between items-center">
+                        <h1 className="text-3xl font-extrabold tracking-tighter italic">
+                            GAME<span className="text-blue-500">ZONE</span>
+                        </h1>
+                        <nav className="hidden md:flex gap-6 text-sm font-medium">
+                            <ul className="flex gap-6">
+                            <li><a href="#catalogo" className="hover:text-blue-400 transition">Catálogo</a></li>
+                            <li><a href="#comparativa" className="hover:text-blue-400 transition">Comparativa</a></li>
+                            <li><a href="#resena" className="hover:text-blue-400 transition">Comunidad</a></li>
+                            </ul>
+                        </nav>
+                        </div>
+                    </header>
+
+                    {/* Hero Section - Nueva Identidad */}
+                    <section className="bg-gradient-to-r from-blue-900 to-black text-white py-20 px-4 text-center">
+                        <div className="max-w-3xl mx-auto">
+                        <h2 className="text-5xl font-bold mb-6">Eleva tu nivel de juego</h2>
+                        <p className="text-lg text-gray-300 mb-8">
+                            En GameZone no solo vendemos juegos, vivimos historias. Desde las praderas de Hyrule hasta el campo de batalla, tenemos la llave a tu próxima gran aventura.
+                        </p>
+                        <button className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-8 rounded-full transition transform hover:scale-105">
+                            Explorar ofertas
+                        </button>
+                        </div>
+                    </section>
+
+                    {/* Sección catálogo */}
+                    <main>
+                        <div id="catalogo" className="py-16 container mx-auto px-4">
+                        <div className="text-center mb-12">
+                            <h2 className="text-3xl font-bold italic mb-2">Títulos Destacados</h2>
+                            <div className="h-1 w-20 bg-blue-500 mx-auto"></div>
+                            <p className="mt-4 text-gray-600">Seleccionados cuidadosamente por expertos para garantizar horas de diversión.</p>
+                        </div>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            {juegos.map((juego) => (
+                            <div key={juego.id} className="bg-white border-0 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300">
+                                <img src={juego.img} alt="" className="w-full h-48 object-cover" />
+                                <div className="p-6">
+                                <span className="text-xs font-bold uppercase tracking-widest text-blue-700">{juego.genero}</span>
+                                <span lang={juego.lang}><h3 className="text-2xl font-bold mb-2">{juego.nombre}</h3></span>
+                                <div className="flex justify-between items-center mt-4">
+                                    <span className="text-2xl font-black text-gray-800">{juego.precio}</span>
+                                    <button className="bg-gray-800 hover:bg-black text-white px-6 py-2 rounded-xl transition focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    Comprar
+                                    </button>
+                                </div>
+                                </div>
+                            </div>
+                            ))}
+                        </div>
+                        </div>
+
+                        {/* Por qué elegirnos - Valor Agregado */}
+                        <div className="bg-white py-16 mx-auto border-y">
+                        <h2 className="text-2xl font-bold mb-4 text-center">¿Por qué elegirnos?</h2>
+                        <div className="container mx-auto mt-8 px-4 grid md:grid-cols-3 gap-8 text-center">
+                            <div>
+                            <div className="text-4xl mb-4 text-blue-600" aria-hidden="true">🚀</div>
+                            <h3 className="font-bold text-xl mb-2">Envío Digital Instantáneo</h3>
+                            <p className="text-gray-500 text-sm">Recibe tus códigos en segundos y empieza a jugar sin esperas.</p>
+                            </div>
+                            <div>
+                            <div className="text-4xl mb-4 text-blue-600" aria-hidden="true">🛡️</div>
+                            <h3 className="font-bold text-xl mb-2">Garantía de Satisfacción</h3>
+                            <p className="text-gray-500 text-sm">Soporte técnico 24/7 y devoluciones aseguradas en tus compras.</p>
+                            </div>
+                            <div>
+                            <div className="text-4xl mb-4 text-blue-600" aria-hidden="true">💎</div>
+                            <h3 className="font-bold text-xl mb-2">Club GameZone</h3>
+                            <p className="text-gray-500 text-sm">Acumula puntos en cada compra y canjéalos por juegos gratis.</p>
+                            </div>
+                        </div>
+                        </div>
+
+                        {/* Tabla comparativa */}
+                        <div id="comparativa" className="py-16 container mx-auto px-4">
+                        <h2 className="text-3xl font-bold mb-8 text-center">Análisis de Precios</h2>
+                        <div className="overflow-x-auto rounded-xl shadow-sm border">
+                            <table className="w-full border-collapse bg-white">
+                            <thead>
+                                <tr className="bg-gray-100 text-left">
+                                <td></td>
+                                <th scope="col" className="p-4 border-b border-l">Nombre</th>
+                                <th scope="col" className="p-4 border-b border-r border-l">Categoría</th>
+                                <th scope="col" className="p-4 border-b text-right">Precio Actual</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {juegos.map((juego) => (
+                                <tr key={juego.id} className="hover:bg-blue-50 transition">
+                                    <th scope="row" className="bg-gray-100 text-left border-t p-4">{juego.nombre}</th>
+                                    <td className="p-4 border-b border-r border-l font-medium"><span lang={juego.lang}>{juego.nombre}</span></td>
+                                    <td className="p-4 border-b border-r text-gray-600">{juego.genero}</td>
+                                    <td className="p-4 border-b text-right font-bold text-blue-700">{juego.precio}</td>
+                                </tr>
+                                ))}
+                            </tbody>
+                            </table>
+                        </div>
+                        </div>
+
+                        {/* Formulario de reseña */}
+                        <div id="resena" className="py-16 bg-gray-900 text-white">
+                        <div className="container mx-auto px-4 max-w-2xl">
+                            <div className="text-center mb-10">
+                            <h2 className="text-3xl font-bold mb-4">¿Qué te pareció tu aventura?</h2>
+                            <p className="text-gray-400">Tu opinión ayuda a otros gamers a elegir su próxima gran historia.</p>
+                            </div>
+                            <form className="bg-white p-8 rounded-3xl shadow-2xl flex flex-col gap-4 text-black">
+                            <label htmlFor="name">Nombre de gamer (Nickname)</label>
+                            <input type="text" id="name" placeholder="Ej. GamerPro123" autoComplete="username" className="border p-3 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none" />
+                            <label htmlFor="juego">¿Qué juego probaste?</label>
+                            <select id="juego" className="border p-3 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none">
+                                <option disabled selected>Selecciona un juego</option>
+                                {juegos.map((juego) => (
+                                <option key={juego.id}>{juego.nombre}</option>
+                                ))}
+                            </select>
+                            <label htmlFor="experiencia">Comentarios</label>
+                            <textarea id="experiencia" placeholder="Cuéntanos tu experiencia..." rows="4" className="border p-3 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"></textarea>
+                            <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition shadow-lg" type="submit">Publicar Reseña</button>
+                            </form>
+                        </div>
+                        </div>
+                    </main>
+
+                    {/* Footer */}
+                    <footer className="p-12 bg-black text-gray-400 text-center">
+                        <h3 className="text-white text-xl font-bold mb-4 uppercase tracking-widest">GameZone</h3>
+                        <p className="max-w-md mx-auto mb-6 text-sm italic">"Donde cada pixel cuenta y cada jugador es una leyenda."</p>
+                        <div className="flex justify-center gap-6 mb-8">
+                        <ul className="flex gap-6">
+                            <li><a href="https://instagram.com/gamezone" className="cursor-pointer hover:text-white transition">Instagram</a></li>
+                            <li><a href="https://discord.com/invite/gamezone" className="cursor-pointer hover:text-white transition">Discord</a></li>
+                            <li><a href="https://twitch.tv/gamezone" className="cursor-pointer hover:text-white transition">Twitch</a></li>
+                        </ul>
+                        </div>
+                        <p className="text-xs">© 2026 GameZone. Diseñado para gamers reales.</p>
+                    </footer>
+                    </div>
+              );
+          }
+
+          const root = ReactDOM.createRoot(document.getElementById('root'));
+          root.render(<LandingPage />);
+      </script>
+  </body>
+</html>
